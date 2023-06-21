@@ -4,6 +4,19 @@ var buttonColors = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 
 var userClickedPattern = [];
+//You'll need a way to keep track of whether if the game has started or not, so you only call nextSequence() on the first keypress.
+var started = false;
+
+var level = 0;
+
+$(document).keypress(function() {
+    if (!started) {
+        $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
 
 $(".btn").click(function () {
     
